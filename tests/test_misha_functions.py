@@ -1,13 +1,21 @@
 from src.helper_functions import misha_functions
+import pytest
 
 
-def test_my_sum():
-    assert misha_functions.my_sum(4, 6) == 10
-    assert misha_functions.my_sum(5, 7) == 12
-    assert misha_functions.my_sum(2, 2) == 4
+@pytest.mark.parametrize("a, b, expected", [
+    (4, 6, 10),
+    (5, 7, 12),
+    (2, 2, 4),
+    (3, 7, 10)
+])
+def test_my_sum(a, b, expected):
+    assert misha_functions.my_sum(a, b) == expected
 
 
-def test_my_multiply():
-    assert misha_functions.my_multiply(3, 4) == 12
-    assert misha_functions.my_multiply(4, 6) == 24
+@pytest.mark.parametrize("a, b, expected", [
+    (4, 6, 24),
+    (5, 7, 35),
+])
+def test_my_multiply(a, b, expected):
+    assert misha_functions.my_multiply(a, b) == expected
 
